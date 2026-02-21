@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AZ XP</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* Custom Cursor */
+body, * {
+  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADeUlEQVR4nO2WUUhbVxjH/9/NTaHBPCib0UJZR5nCdNYuo2GVRWxggdmXRcueTFTYk0+lNiIdlj1N5ouCT76HgSh0sO1BYqkue1nr6NgEu45RKRbFGqeyar33nP8eYrI0D3pjlpbBPvgu3HMP5/7O933n/x0hiVdpxiv9+/8A/xkAkihXsToCEBGISFkgDgXQWgMAJiYmuLy8DBHJjb1UgFTqB3R2dtKyrBfGyw6Qtddf8+HXXxYRi8VoGAa01v9aOhwBpNOb+GL4Szx9uo5oNErTNKGUenkAtrLh9Vbg1q2vZWZmBkNDQzRNE/v7+yUDmE4mGWLg2V/P4PF4MD8/L4FAgD6fj319fWJZFtxud3kBIIDLdIEk6urqkEwmpbW1lTU1Nezo6BDbtmGazpYqNOdKyIwe7O3twe/3Y3p6GtFoFKlUiqZpwrbtMgMcmNvthm3bCIfDMj4+jvb2diwtLeG4hXmsuGV33NPTI6urq2xra+PCwk9y6lQttNYwDOf7Ol7i8iAGBwdlbW2Nly618e7dH6WiwlsUREndMBv20dFRaWpqQjj8IbVWAJw3L2fNKPf4pzOShGVZcLkyp2NyclJOnqxAV1eUhuECCUcQRacg25AMw8DDh7+juzvGjDQDtq1x+/YsqqurOTIyIoZhwOVylQ5AIKf/Stm4cuUT3rjxmfj956EUEQy24vLlj6CUgtfrxe7uLizLgsfjOXJtZwAkDDEgIohGuzk7O4szZ97khQvvSX//NSQSXyEUComTtQrNYRESXq8X/f1xrqw8wf37P0symcTjxyuIRD6WR4/+wJ07c1RKwbKs4tp1flEVumVZIImrV6/z7Nm3GAwGmU6nQRJdXTEODAySJIaHhxmJREgStm0fumahOwLo6f6Up0+/wY2NjYM60Lh3bwENDe9wZ2cH6XQa9fX1XFxchNYaSinHAIemICsmDY1v49tvvpOqqqoDuSX8/nfh81UjkUiwsrISoVAIY2NjLPra5oQyG9bsSci8a0xNTTEQeJ9KKTx48BsaGxu5vr4OrXVubkkpyPfCsGqt8fz5Ps6dO8+5ue9JEi0tLYzH48xP31HuWIgKtV0phRMn3Ojt7UU8PoDaWh+3trbQ3Nycya3ThlRMxRZGgCQ2N//ExYsf8ObNz7m9vf3CNycupd5ulVYwRCBi5CJzlPzm298cmAq7FVf/lQAAAABJRU5ErkJggg==") 0 0, default !important;
+}
+a, button, .icon, .win-btn, .sm-item, .ctx-item, .taskbar-app, #start-btn, .file-item, .tb-btn, .wallpaper-option, .settings-nav-item, [onclick] {
+  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAD20lEQVR4nO1XTUhcVxT+zn3vjZmF2OCg4og0m44aZkANTuIoVVw1uEo3DbhpVilDTMAu0n2yCt2YbhSEFBduxNiFSxdTOkgiQkNamZRMd9Hgpk6cceb93HO6mJ84JUN1fFkUeuDC475z3v0473zfOZdEBH4YM0MpVXkWKEWniiO/AABAJvMHAKCv77PTB4nIuRYzg5mRzf6JRGJcxsc/l2w2C631qeLPfbiIwHVdjI6Oyu5uBq9fZzE6OibFYqnOp9Ey/Ug9EaFYLCIYDKKlJYBi0QZAOM3vVX4AAADDMKC1hudpGErBNE0Q0ftUf2wAIgIiAlGZBblcDrZtQykFosaM8A1AGQSjpaUFb97sY3AwJrdvfyOe56FUsuG6Xg3oRwOglILjOAiFQlhf/4kmJydx+XJUYrGYPH78gwCA4zhg5vMDOMmEE7sQYVy4YGFoaAjt7e24ePETrKyskG2XEI1GZWNjQ5RScF33fACICEqpivopMEulDgCBC2ZGqVRET083hoeHUCjkceXKCFKpX7C6uiqWZUFrfXYAWmsAwPz8vMTjcbl2LSGvXmXQ2toKZobnaeTzBSiloLVGLvcOzAzHcRGJRHDv3iytrT1FOp0WpdTZdaBaRNvb2+jt7cWNG1/i/v3v5OXL32BZJjo6OrCwsABmRiKRoJ6eHlFKgZmxv7+HS5c+xeHhX9jb2wMRNS9Etl3C9PQ0bt78itra2mR393eUSg6CwSAmJiaImREOhxEOh0lEcOvW11SVZ8uyEAgEADRRA4ZhgJkxN/ctNjc3sbOzg+vXv6BQKASty4Xlui6UUrUiJSIMDAwgGo1WtOK9Sp45A9XgeDxO+Xxenjz5UYgUFQqFGtcNw6j5VkWImaG1hmVZdd9rigVVGk1NTdH29nO8fbsvDx8+QGdnZ+3gD8VUC/MksKZpaJomtNaYm5tDOp3G2NgYdXV11SS5kRmGAcdxYNt2ecOPdtzf3y9bW1siIg3nAK01mBlra2syOzsrmUymPEU1mwGgnGqtNZLJJFKpFA4ODuoK7KRVwS4vL6Ovrw+RSKQ5IfqnGYaBZDJJi4uLODw8bAhARKCUQjAYRD6fr/n40ow8z8PMzAxSqZ/l6OiooogetNaVGaFMz2fPnkt7ewgjIyPlw5XyZyasjmWDg8OSy71r6Hvnzl159Oh7qfr7NpIBQKFwjOPjYywtLUlHRydYlxsTUP7/gYCFFy9+RXd3d10H9Q1AIBDA1atxrK8/hWkGIFz/3jANGIZCLBatdNByDfh2L/g3/jcyXy8m9cNJgwNPqKDvAJoxX2fC/wH8JwH8DXFiHv5bUVapAAAAAElFTkSuQmCC") 8 0, pointer !important;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+
+/* ========= SCREENS ========= */
+.screen { position:fixed; inset:0; z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+
+/* SETUP SCREEN */
+#setup-screen {
+  background: linear-gradient(135deg, #003399 0%, #0055cc 50%, #0033aa 100%);
+  font-family: 'Tajawal', sans-serif;
+}
+.setup-header {
+  width:100%; background: linear-gradient(90deg, #0033aa, #0077ff, #0033aa);
+  padding: 12px 30px; display:flex; align-items:center; justify-content:space-between;
+  border-bottom: 2px solid #00aaff;
+}
+.setup-logo { color:white; font-size:28px; font-weight:900; letter-spacing:-1px; }
+.setup-logo span { color:#00ddff; }
+.setup-subtitle { color:rgba(255,255,255,0.7); font-size:12px; }
+.setup-body { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px; padding:40px; }
+.setup-box {
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2);
+  border-radius:8px; padding:30px 50px; text-align:center; width:500px;
+  backdrop-filter:blur(10px);
+}
+.setup-title { color:white; font-size:22px; font-weight:700; margin-bottom:8px; }
+.setup-desc { color:rgba(255,255,255,0.7); font-size:13px; line-height:1.8; }
+.setup-progress { width:100%; margin-top:20px; }
+.setup-progress-bar {
+  width:100%; height:20px; background:rgba(0,0,0,0.3);
+  border-radius:10px; border:1px solid rgba(255,255,255,0.2); overflow:hidden;
+}
+.setup-progress-fill {
+  height:100%; width:0%;
+  background: linear-gradient(90deg, #00aaff, #00ffaa);
+  border-radius:10px; transition:width 0.3s;
+  box-shadow: 0 0 10px rgba(0,200,255,0.5);
+}
+.setup-progress-text { color:rgba(255,255,255,0.7); font-size:11px; margin-top:6px; text-align:left; }
+.setup-steps { display:flex; gap:8px; flex-direction:column; width:500px; }
+.setup-step {
+  display:flex; align-items:center; gap:12px;
+  padding:10px 16px; border-radius:6px;
+  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.5); font-size:13px; transition:all 0.3s;
+}
+.setup-step.active { background:rgba(0,170,255,0.15); border-color:#00aaff; color:white; }
+.setup-step.done { background:rgba(0,255,170,0.1); border-color:#00ffaa; color:#00ffaa; }
+.step-icon { font-size:18px; }
+.setup-footer {
+  width:100%; background:rgba(0,0,0,0.3);
+  padding:12px 30px; display:flex; justify-content:space-between; align-items:center;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+.setup-footer-text { color:rgba(255,255,255,0.5); font-size:11px; }
+
+/* STARTUP SCREEN */
+#startup-screen {
+  background: #000;
+  font-family: 'Tajawal', sans-serif;
+  flex-direction:column;
+}
+.startup-logo-container { display:flex; flex-direction:column; align-items:center; gap:16px; }
+.startup-az {
+  font-size:100px; font-weight:900; letter-spacing:-5px;
+  background: linear-gradient(135deg, #1a6ba0 0%, #00aaff 50%, #1a6ba0 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:0.8} 50%{opacity:1} }
+.startup-name { color:white; font-size:20px; letter-spacing:8px; font-weight:300; opacity:0.8; }
+.startup-version { color:rgba(255,255,255,0.4); font-size:12px; margin-top:4px; }
+.startup-bar-container { margin-top:40px; width:200px; }
+.startup-bar {
+  width:100%; height:6px; background:rgba(255,255,255,0.1);
+  border-radius:3px; overflow:hidden;
+}
+.startup-bar-fill {
+  height:100%; width:0%;
+  background: linear-gradient(90deg, #1a6ba0, #00aaff);
+  border-radius:3px; animation: loadbar 3s ease-in-out forwards;
+}
+@keyframes loadbar { 0%{width:0%} 30%{width:40%} 60%{width:70%} 80%{width:85%} 100%{width:100%} }
+.startup-copy { position:absolute; bottom:20px; color:rgba(255,255,255,0.3); font-size:11px; }
+
+/* LOGIN SCREEN */
+#login-screen {
+  background: linear-gradient(160deg, #1a3d6b 0%, #0d2140 50%, #1a3d6b 100%);
+  font-family: 'Tajawal', sans-serif;
+}
+.login-header {
+  position:absolute; top:0; left:0; right:0;
+  background: linear-gradient(90deg, #0d2140, #1a5080, #0d2140);
+  padding:16px 30px; display:flex; align-items:center; gap:16px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.login-header-logo { font-size:32px; font-weight:900; color:white; letter-spacing:-2px; }
+.login-header-logo span { color:#00aaff; }
+.login-header-text { color:rgba(255,255,255,0.7); font-size:13px; }
+.login-box {
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15);
+  border-radius:12px; padding:40px; width:380px; text-align:center;
+  backdrop-filter:blur(20px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.1);
+}
+.login-avatar {
+  width:80px; height:80px; border-radius:50%;
+  background: linear-gradient(135deg, #1a6ba0, #00aaff);
+  display:flex; align-items:center; justify-content:center;
+  font-size:44px; margin:0 auto 12px;
+  border: 3px solid rgba(255,255,255,0.3);
+  box-shadow: 0 4px 20px rgba(0,170,255,0.4);
+}
+.login-username { color:white; font-size:18px; font-weight:700; margin-bottom:20px; }
+.login-input {
+  width:100%; padding:10px 14px; border-radius:6px;
+  background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.2);
+  color:white; font-size:14px; font-family:'Tajawal',sans-serif;
+  outline:none; text-align:right; direction:rtl; margin-bottom:12px;
+}
+.login-input:focus { border-color:#00aaff; box-shadow:0 0 0 2px rgba(0,170,255,0.2); }
+.login-input::placeholder { color:rgba(255,255,255,0.3); }
+.login-btn {
+  width:100%; padding:10px; border-radius:6px;
+  background: linear-gradient(180deg, #1a80d0, #0d5a9c);
+  border:1px solid rgba(255,255,255,0.2); color:white;
+  font-size:14px; font-weight:700; font-family:'Tajawal',sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.login-btn:hover { background: linear-gradient(180deg, #2090e0, #1a6baa); }
+.login-users { display:flex; gap:16px; justify-content:center; margin-top:20px; }
+.login-user-opt {
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  padding:10px; border-radius:8px; cursor:pointer;
+  border:1px solid rgba(255,255,255,0.1);
+  transition:background 0.2s;
+}
+.login-user-opt:hover { background:rgba(255,255,255,0.1); }
+.login-user-opt .av { font-size:28px; }
+.login-user-opt .nm { color:rgba(255,255,255,0.7); font-size:11px; }
+.login-footer {
+  position:absolute; bottom:0; left:0; right:0;
+  background:rgba(0,0,0,0.4); padding:12px 30px;
+  display:flex; justify-content:space-between; align-items:center;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+.login-footer-btns { display:flex; gap:8px; }
+.login-footer-btn {
+  color:white; font-size:12px; font-family:'Tajawal',sans-serif;
+  padding:5px 12px; border-radius:4px;
+  background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+}
+.login-footer-btn:hover { background:rgba(255,255,255,0.2); }
+.login-error { color:#ff6666; font-size:12px; margin-top:-6px; margin-bottom:8px; min-height:18px; }
+
+/* ========= DESKTOP ========= */
+#desktop-screen { display:none; inset:0; position:fixed; }
+
+#desktop {
+  width:100%; height:calc(100vh - 40px);
+  position:relative; overflow:hidden;
+  transition: background 0.5s;
+}
+
+.wallpaper-bliss {
+  background: linear-gradient(180deg, #2d8cdb 0%, #4db8f8 30%, #7dd4f8 50%, #5bb858 50%, #3a9c3a 70%, #2d8c2d 100%) !important;
+}
+.wallpaper-night {
+  background: linear-gradient(180deg, #050818 0%, #0d1a3a 40%, #1a0a2e 70%, #0a0a0a 100%) !important;
+}
+.wallpaper-sunset {
+  background: linear-gradient(180deg, #1a0a2e 0%, #8b1a4a 30%, #ff6b35 60%, #ffaa00 80%, #ffd700 100%) !important;
+}
+.wallpaper-forest {
+  background: linear-gradient(180deg, #87ceeb 0%, #98d4ea 30%, #228b22 50%, #1a6b1a 70%, #145214 100%) !important;
+}
+.wallpaper-ocean {
+  background: linear-gradient(180deg, #001a33 0%, #003366 30%, #0066cc 60%, #0099ff 80%, #00ccff 100%) !important;
+}
+.wallpaper-desert {
+  background: linear-gradient(180deg, #87ceeb 0%, #f4a460 40%, #daa520 60%, #cd853f 80%, #8b4513 100%) !important;
+}
+.wallpaper-dark { background: #111 !important; }
+.wallpaper-aurora {
+  background: linear-gradient(135deg, #0d1117 0%, #1a2a1a 30%, #002a1a 50%, #1a0a2e 70%, #0a0a1a 100%) !important;
+}
+
+#desktop::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(ellipse at 60% 40%, rgba(255,255,255,0.06) 0%, transparent 70%);
+}
+
+/* Desktop Icons */
+.desktop-icons {
+  position:absolute; top:20px; right:20px;
+  display:flex; flex-direction:column; gap:14px;
+}
+.icon {
+  display:flex; flex-direction:column; align-items:center;
+  gap:4px; padding:6px; border-radius:4px; width:80px;
+  transition:background 0.15s; position:relative;
+}
+.icon:hover { background:rgba(255,255,255,0.2); }
+.icon.selected { background:rgba(100,150,255,0.3); outline:1px solid rgba(100,150,255,0.6); }
+.icon-img { width:48px; height:48px; display:flex; align-items:center; justify-content:center; font-size:36px; filter:drop-shadow(1px 2px 3px rgba(0,0,0,0.5)); }
+.icon-label { color:white; font-size:11px; text-align:center; text-shadow:1px 1px 2px rgba(0,0,0,0.9); line-height:1.3; }
+
+/* AZ Watermark */
+.az-watermark {
+  position:absolute; bottom:20px; left:50%; transform:translateX(-50%);
+  color:rgba(255,255,255,0.07); font-size:130px; font-weight:900;
+  letter-spacing:-6px; pointer-events:none; font-family:'Tajawal',sans-serif;
+}
+
+/* TASKBAR */
+#taskbar {
+  position:fixed; bottom:0; left:0; right:0; height:40px;
+  background: linear-gradient(180deg, #245fbd 0%, #1a4fa0 40%, #163d8a 100%);
+  border-top:1px solid #5b9bd5; display:flex; align-items:center;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.5); z-index:1000;
+}
+
+#start-btn {
+  height:36px; margin:2px;
+  background: linear-gradient(180deg, #5cb85c 0%, #3a9c3a 50%, #2d8c2d 100%);
+  border:1px solid #1a6b1a; border-radius:3px 14px 14px 3px;
+  color:white; font-weight:900; font-size:14px;
+  font-family:'Tajawal',sans-serif; padding:0 18px 0 10px;
+  display:flex; align-items:center; gap:6px;
+  box-shadow:inset 0 1px rgba(255,255,255,0.35), 0 2px 4px rgba(0,0,0,0.4);
+  transition:filter 0.1s; white-space:nowrap;
+}
+#start-btn:hover { filter:brightness(1.12); }
+#start-btn:active { filter:brightness(0.9); }
+
+#taskbar-apps { display:flex; gap:3px; padding:0 6px; flex:1; overflow:hidden; }
+.taskbar-app {
+  height:30px; padding:0 10px;
+  background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.18);
+  border-radius:3px; color:white; font-size:12px;
+  font-family:'Tajawal',sans-serif;
+  display:flex; align-items:center; gap:5px;
+  transition:background 0.15s; max-width:140px; overflow:hidden;
+  white-space:nowrap;
+}
+.taskbar-app:hover { background:rgba(255,255,255,0.22); }
+.taskbar-app.active { background:rgba(0,0,0,0.3); border-color:rgba(255,255,255,0.28); }
+
+#taskbar-right {
+  display:flex; align-items:center; gap:6px; padding-left:8px;
+  border-left:1px solid rgba(255,255,255,0.15); margin-left:6px;
+}
+#clock {
+  color:white; font-size:11px; text-align:center;
+  background:rgba(0,0,0,0.2); padding:3px 8px; border-radius:3px;
+  border:1px solid rgba(255,255,255,0.12); min-width:65px; line-height:1.4;
+}
+.taskbar-icon { font-size:16px; opacity:0.8; }
+
+/* WINDOWS */
+.window {
+  position:absolute; background:#ece9d8;
+  border:2px solid #0831d9; border-radius:8px 8px 2px 2px;
+  box-shadow:4px 4px 15px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.4);
+  display:flex; flex-direction:column; overflow:hidden;
+  min-width:280px; min-height:180px;
+}
+.window.focused { box-shadow:4px 4px 20px rgba(0,0,0,0.7), inset 0 0 0 1px rgba(255,255,255,0.5); }
+
+.window-titlebar {
+  height:30px;
+  background: linear-gradient(180deg, #0058e6 0%, #003ec4 60%, #0031ad 100%);
+  display:flex; align-items:center; padding:0 6px;
+  border-radius:6px 6px 0 0; gap:5px;
+}
+.window.unfocused .window-titlebar {
+  background: linear-gradient(180deg, #7a9abf 0%, #6080a0 100%);
+}
+.window-icon-title { font-size:14px; }
+.window-title { color:white; font-size:12px; font-weight:700; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-shadow:1px 1px 1px rgba(0,0,0,0.5); }
+.win-btn { width:22px; height:21px; border-radius:3px; border:none; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; box-shadow:inset 0 1px rgba(255,255,255,0.4); transition:filter 0.1s; }
+.win-btn:hover { filter:brightness(1.2); }
+.win-btn:active { filter:brightness(0.85); }
+.win-btn.minimize { background:linear-gradient(180deg,#f0c050,#d8a020); color:#553300; }
+.win-btn.maximize { background:linear-gradient(180deg,#50c850,#28a028); color:white; }
+.win-btn.close { background:linear-gradient(180deg,#f04040,#c01010); color:white; }
+
+.window-menubar {
+  background:linear-gradient(180deg,#f5f4ea,#e8e4d0);
+  border-bottom:1px solid #bbb; padding:2px 8px;
+  display:flex; gap:0;
+}
+.menu-item { font-size:12px; color:#000; padding:2px 8px; border-radius:2px; white-space:nowrap; }
+.menu-item:hover { background:#316ac5; color:white; }
+.menu-item:active { background:#1a4fa0; color:white; }
+
+.window-toolbar {
+  background:linear-gradient(180deg,#f5f4ea,#ddd8c0);
+  border-bottom:1px solid #bbb; padding:3px 6px;
+  display:flex; gap:4px; align-items:center;
+}
+.tb-btn {
+  height:24px; padding:0 8px;
+  background:linear-gradient(180deg,#f5f4ea,#d0cbb8);
+  border:1px solid #aaa; border-radius:2px;
+  font-size:11px; font-family:'Tajawal',sans-serif;
+  display:flex; align-items:center; gap:3px; white-space:nowrap;
+}
+.tb-btn:hover { background:linear-gradient(180deg,#fff,#e0dbc8); }
+
+.window-content { flex:1; overflow:auto; background:white; }
+.window-statusbar {
+  background:linear-gradient(180deg,#ece9d8,#ddd8c0);
+  border-top:1px solid #bbb; padding:2px 8px;
+  font-size:11px; color:#444; display:flex; gap:12px;
+}
+
+/* File Grid */
+.file-grid { display:grid; grid-template-columns:repeat(auto-fill,80px); gap:10px; padding:12px; background:#fff; }
+.file-item { display:flex; flex-direction:column; align-items:center; gap:3px; padding:6px; border-radius:3px; }
+.file-item:hover { background:#cde8ff; }
+.file-item.selected { background:#316ac5; }
+.file-item.selected .fi-name { color:white; }
+.fi-icon { font-size:32px; }
+.fi-name { font-size:11px; text-align:center; color:#000; word-break:break-word; }
+
+/* Notepad */
+.notepad-area { width:100%; height:100%; border:none; outline:none; resize:none; font-family:'Courier New',monospace; font-size:13px; padding:4px; background:white; color:#000; }
+
+/* Explorer sidebar */
+.explorer-layout { display:flex; height:100%; }
+.explorer-sidebar {
+  width:160px; background:#f0ede0; border-left:1px solid #bbb;
+  padding:8px 4px; font-size:11px; overflow-y:auto; flex-shrink:0;
+}
+.sidebar-section { margin-bottom:12px; }
+.sidebar-title { font-weight:700; color:#003399; font-size:11px; padding:3px 8px; }
+.sidebar-item { padding:3px 8px; border-radius:2px; display:flex; align-items:center; gap:6px; }
+.sidebar-item:hover { background:#d0e8ff; }
+.explorer-main { flex:1; overflow:auto; }
+
+/* ========= SETTINGS ========= */
+.settings-layout { display:flex; height:100%; }
+.settings-nav {
+  width:180px; background:linear-gradient(180deg,#dde8f8,#c8d8f0);
+  border-left:1px solid #aac0e0; padding:8px 0; overflow-y:auto; flex-shrink:0;
+}
+.settings-nav-item {
+  display:flex; align-items:center; gap:10px;
+  padding:8px 14px; font-size:12px; font-family:'Tajawal',sans-serif;
+  transition:background 0.15s;
+}
+.settings-nav-item:hover { background:rgba(49,106,197,0.15); }
+.settings-nav-item.active { background:#316ac5; color:white; font-weight:700; }
+.settings-nav-item .sn-icon { font-size:18px; }
+.settings-content { flex:1; padding:16px; overflow-y:auto; background:white; }
+.settings-section { margin-bottom:20px; }
+.settings-h { font-size:14px; font-weight:700; color:#003399; border-bottom:2px solid #316ac5; padding-bottom:4px; margin-bottom:12px; }
+.settings-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; font-size:12px; }
+.settings-label { color:#333; flex:1; }
+
+/* Wallpaper grid */
+.wallpaper-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:8px; }
+.wallpaper-option {
+  height:50px; border-radius:4px; border:2px solid transparent;
+  transition:border-color 0.2s; position:relative; overflow:hidden;
+}
+.wallpaper-option:hover { border-color:#316ac5; }
+.wallpaper-option.selected { border-color:#ff6600; box-shadow:0 0 0 1px #ff6600; }
+.wallpaper-option .wp-label {
+  position:absolute; bottom:0; left:0; right:0;
+  background:rgba(0,0,0,0.5); color:white; font-size:9px; text-align:center; padding:2px;
+}
+.wp-bliss { background:linear-gradient(180deg,#2d8cdb 0%,#7dd4f8 50%,#5bb858 50%,#3a9c3a 100%); }
+.wp-night { background:linear-gradient(180deg,#050818,#0d1a3a 50%,#0a0a0a 100%); }
+.wp-sunset { background:linear-gradient(180deg,#8b1a4a 0%,#ff6b35 50%,#ffd700 100%); }
+.wp-forest { background:linear-gradient(180deg,#87ceeb 0%,#228b22 50%,#145214 100%); }
+.wp-ocean { background:linear-gradient(180deg,#001a33 0%,#0066cc 50%,#00ccff 100%); }
+.wp-desert { background:linear-gradient(180deg,#87ceeb 0%,#f4a460 50%,#8b4513 100%); }
+.wp-dark { background:#111; }
+.wp-aurora { background:linear-gradient(135deg,#0d1117,#1a2a1a,#002a1a,#1a0a2e); }
+
+/* Toggle switch */
+.toggle { width:36px; height:20px; background:#bbb; border-radius:10px; position:relative; transition:background 0.2s; flex-shrink:0; }
+.toggle.on { background:#316ac5; }
+.toggle::after { content:''; position:absolute; width:16px; height:16px; background:white; border-radius:50%; top:2px; left:2px; transition:left 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.3); }
+.toggle.on::after { left:18px; }
+
+/* Select */
+.settings-select {
+  padding:3px 8px; border:1px solid #aaa; border-radius:3px;
+  font-family:'Tajawal',sans-serif; font-size:12px; background:#f5f4ea;
+}
+
+/* Slider */
+.settings-slider { width:120px; accent-color:#316ac5; }
+
+/* Calculator */
+#calc-display {
+  width:100%; text-align:left; font-size:22px; padding:6px 10px;
+  background:white; border:2px inset #999; margin-bottom:6px;
+  font-family:'Courier New',monospace; letter-spacing:1px;
+}
+.calc-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; }
+.calc-btn {
+  height:36px; font-size:14px; font-family:'Tajawal',sans-serif;
+  border:1px solid #999; border-radius:3px;
+  background:linear-gradient(180deg,#f5f4ea,#d8d4bc);
+  box-shadow:inset 0 1px rgba(255,255,255,0.5); transition:filter 0.1s;
+}
+.calc-btn:hover { filter:brightness(1.05); }
+.calc-btn:active { filter:brightness(0.9); box-shadow:inset 0 2px 3px rgba(0,0,0,0.2); }
+.calc-btn.op { background:linear-gradient(180deg,#d4e8f8,#b8d0ec); }
+.calc-btn.eq { background:linear-gradient(180deg,#4080d0,#2060b0); color:white; }
+.calc-btn.clr { background:linear-gradient(180deg,#f08080,#d04040); color:white; }
+.calc-btn.span2 { grid-column:span 2; }
+
+/* About */
+.about-content { display:flex; flex-direction:column; align-items:center; padding:24px; gap:10px; text-align:center; }
+.about-logo-big { font-size:72px; font-weight:900; font-family:'Tajawal',sans-serif; background:linear-gradient(135deg,#1a6ba0,#00aaff,#0044cc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:-4px; }
+.about-name { font-size:20px; font-weight:700; color:#003399; }
+.about-ok { padding:5px 30px; background:linear-gradient(180deg,#f5f4ea,#d8d4bc); border:1px solid #888; border-radius:3px; font-family:'Tajawal',sans-serif; margin-top:8px; }
+
+/* START MENU */
+#start-menu {
+  position:fixed; bottom:40px; left:0; width:400px;
+  background:white; border:1px solid #0831d9; border-radius:8px 8px 0 0;
+  box-shadow:4px -4px 20px rgba(0,0,0,0.5); display:none; overflow:hidden; z-index:2000;
+}
+.sm-header { background:linear-gradient(90deg,#1a4fa0,#2d7dd2); padding:12px 16px; display:flex; align-items:center; gap:12px; }
+.sm-avatar { width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,#60c860,#1a8c1a); display:flex; align-items:center; justify-content:center; font-size:30px; border:2px solid rgba(255,255,255,0.5); }
+.sm-username { color:white; font-weight:900; font-size:16px; }
+.sm-subtitle { color:rgba(255,255,255,0.65); font-size:11px; }
+.sm-body { display:flex; max-height:320px; }
+.sm-left { flex:1; border-right:1px solid #ddd; padding:8px 0; overflow-y:auto; }
+.sm-right { width:170px; background:#d3e5f5; padding:8px 0; }
+.sm-item { display:flex; align-items:center; gap:10px; padding:7px 14px; font-size:12px; font-family:'Tajawal',sans-serif; }
+.sm-item:hover { background:#316ac5; color:white; margin:0 4px; padding:7px 10px; border-radius:3px; }
+.sm-item .sm-icon { font-size:20px; flex-shrink:0; }
+.sm-sep { height:1px; background:#ccc; margin:5px 12px; }
+.sm-footer { background:linear-gradient(90deg,#1a4fa0,#2d7dd2); display:flex; justify-content:flex-end; gap:8px; padding:6px 12px; }
+.sm-footer-btn { display:flex; align-items:center; gap:5px; color:white; font-size:12px; font-family:'Tajawal',sans-serif; padding:4px 10px; border-radius:3px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.2); }
+.sm-footer-btn:hover { background:rgba(0,0,0,0.35); }
+
+/* CONTEXT MENU */
+#ctx-menu {
+  position:fixed; display:none; background:#ece9d8;
+  border:1px solid #888; box-shadow:3px 3px 8px rgba(0,0,0,0.35);
+  z-index:9999; min-width:170px; border-radius:2px;
+}
+.ctx-item { padding:5px 20px; font-size:12px; font-family:'Tajawal',sans-serif; display:flex; align-items:center; gap:8px; }
+.ctx-item:hover { background:#316ac5; color:white; }
+.ctx-sep { height:1px; background:#bbb; margin:3px 0; }
+
+/* Resize handle */
+.resize-handle { position:absolute; bottom:0; left:0; width:12px; height:12px; cursor:se-resize; }
+
+/* Animations */
+.window { animation:winOpen 0.15s ease-out; }
+@keyframes winOpen { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }
+</style>
+</head>
+<body>
+
+<!-- ===== SETUP SCREEN ===== -->
+<div id="setup-screen" class="screen">
+  <div class="setup-header">
+    <div>
+      <div class="setup-logo">AZ<span>XP</span></div>
+      <div class="setup-subtitle">نظام التشغيل العربي</div>
+    </div>
+    <div style="color:rgba(255,255,255,0.5);font-size:12px;font-family:'Tajawal',sans-serif;">إعداد النظام</div>
+  </div>
+
+  <div class="setup-body">
+    <div class="setup-box">
+      <div style="font-size:48px;margin-bottom:10px;">🛠️</div>
+      <div class="setup-title" id="setup-title">مرحباً بك في إعداد AZ XP</div>
+      <div class="setup-desc" id="setup-desc">جاري تجهيز نظام التشغيل الخاص بك...<br>يرجى الانتظار حتى اكتمال الإعداد.</div>
+      <div class="setup-progress">
+        <div class="setup-progress-bar">
+          <div class="setup-progress-fill" id="setup-fill"></div>
+        </div>
+        <div class="setup-progress-text" id="setup-ptext">جاري التحميل...</div>
+      </div>
+    </div>
+
+    <div class="setup-steps">
+      <div class="setup-step active" id="step0"><span class="step-icon">⚙️</span><span>تجهيز ملفات النظام</span><span style="margin-right:auto;font-size:12px;" id="step0s">جاري...</span></div>
+      <div class="setup-step" id="step1"><span class="step-icon">🔧</span><span>تثبيت المكونات الأساسية</span><span style="margin-right:auto;font-size:12px;" id="step1s"></span></div>
+      <div class="setup-step" id="step2"><span class="step-icon">🖥️</span><span>إعداد واجهة المستخدم</span><span style="margin-right:auto;font-size:12px;" id="step2s"></span></div>
+      <div class="setup-step" id="step3"><span class="step-icon">🔤</span><span>تهيئة اللغة العربية</span><span style="margin-right:auto;font-size:12px;" id="step3s"></span></div>
+      <div class="setup-step" id="step4"><span class="step-icon">✅</span><span>اكتمل الإعداد بنجاح</span><span style="margin-right:auto;font-size:12px;" id="step4s"></span></div>
+    </div>
+  </div>
+
+  <div class="setup-footer">
+    <div class="setup-footer-text">AZ Systems © 2024 — جميع الحقوق محفوظة</div>
+    <div class="setup-footer-text" id="setup-version">الإصدار 1.0 XP Professional</div>
+  </div>
+</div>
+
+<!-- ===== STARTUP SCREEN ===== -->
+<div id="startup-screen" class="screen" style="display:none;">
+  <div class="startup-logo-container">
+    <div class="startup-az">AZ</div>
+    <div class="startup-name">X P</div>
+    <div class="startup-version">Professional Edition</div>
+    <div class="startup-bar-container">
+      <div class="startup-bar">
+        <div class="startup-bar-fill" id="startup-fill"></div>
+      </div>
+    </div>
+  </div>
+  <div class="startup-copy">AZ Systems — نظام التشغيل العربي</div>
+</div>
+
+<!-- ===== LOGIN SCREEN ===== -->
+<div id="login-screen" class="screen" style="display:none;">
+  <div class="login-header">
+    <div class="login-header-logo">AZ<span>XP</span></div>
+    <div class="login-header-text">للبدء، انقر على اسم المستخدم الخاص بك</div>
+  </div>
+
+  <div class="login-box">
+    <div class="login-avatar">👤</div>
+    <div class="login-username">مستخدم AZ</div>
+    <div class="login-error" id="login-error"></div>
+    <input class="login-input" type="password" placeholder="كلمة المرور (اتركها فارغة)" id="login-pass" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">→ تسجيل الدخول</button>
+    <div class="login-users" style="margin-top:16px;">
+      <div class="login-user-opt" onclick="doLogin()"><div class="av">👤</div><div class="nm">مستخدم AZ</div></div>
+      <div class="login-user-opt" onclick="doLogin()"><div class="av">👨‍💼</div><div class="nm">مشرف</div></div>
+      <div class="login-user-opt" onclick="doLogin()"><div class="av">👩‍💻</div><div class="nm">ضيف</div></div>
+    </div>
+  </div>
+
+  <div class="login-footer">
+    <div style="color:rgba(255,255,255,0.5);font-size:12px;font-family:'Tajawal',sans-serif;">AZ XP Professional</div>
+    <div class="login-footer-btns">
+      <button class="login-footer-btn" onclick="showShutdown()">🔴 إيقاف</button>
+      <button class="login-footer-btn">♿ إمكانية الوصول</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DESKTOP SCREEN ===== -->
+<div id="desktop-screen">
+  <div id="desktop" class="wallpaper-bliss" oncontextmenu="showCtxMenu(event)" onclick="closeMenus(); deselectIcons()">
+    <div class="az-watermark">AZ</div>
+    <div class="desktop-icons" id="desktop-icons">
+      <div class="icon" id="ico-mypc" ondblclick="openWindow('mycomputer')" onclick="selectIcon(this,event)">
+        <div class="icon-img">🖥️</div><div class="icon-label">جهاز الكمبيوتر</div>
+      </div>
+      <div class="icon" ondblclick="openWindow('notepad')" onclick="selectIcon(this,event)">
+        <div class="icon-img">📝</div><div class="icon-label">المفكرة</div>
+      </div>
+      <div class="icon" ondblclick="openWindow('calculator')" onclick="selectIcon(this,event)">
+        <div class="icon-img">🧮</div><div class="icon-label">الآلة الحاسبة</div>
+      </div>
+      <div class="icon" ondblclick="openWindow('settings')" onclick="selectIcon(this,event)">
+        <div class="icon-img">⚙️</div><div class="icon-label">الإعدادات</div>
+      </div>
+      <div class="icon" ondblclick="openWindow('about')" onclick="selectIcon(this,event)">
+        <div class="icon-img">ℹ️</div><div class="icon-label">عن AZ XP</div>
+      </div>
+      <div class="icon" ondblclick="openWindow('recycle')" onclick="selectIcon(this,event)">
+        <div class="icon-img">🗑️</div><div class="icon-label">سلة المحذوفات</div>
+      </div>
+      <div class="icon" ondblclick="openWindow('explorer')" onclick="selectIcon(this,event)">
+        <div class="icon-img">📁</div><div class="icon-label">مستنداتي</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="taskbar">
+    <button id="start-btn" onclick="toggleStartMenu(event)">
+      <span style="font-size:20px;">🪟</span> ابدأ
+    </button>
+    <div id="taskbar-apps"></div>
+    <div id="taskbar-right">
+      <span class="taskbar-icon" title="الشبكة">📶</span>
+      <span class="taskbar-icon" title="الصوت">🔊</span>
+      <div id="clock">00:00</div>
+    </div>
+  </div>
+</div>
+
+<!-- START MENU -->
+<div id="start-menu" onclick="event.stopPropagation()">
+  <div class="sm-header">
+    <div class="sm-avatar">👤</div>
+    <div><div class="sm-username">مستخدم AZ</div><div class="sm-subtitle">AZ XP Professional</div></div>
+  </div>
+  <div class="sm-body">
+    <div class="sm-left">
+      <div class="sm-item" onclick="openWindow('notepad');closeMenus()"><span class="sm-icon">📝</span><span>المفكرة</span></div>
+      <div class="sm-item" onclick="openWindow('calculator');closeMenus()"><span class="sm-icon">🧮</span><span>الآلة الحاسبة</span></div>
+      <div class="sm-item" onclick="openWindow('explorer');closeMenus()"><span class="sm-icon">📁</span><span>مستعرض الملفات</span></div>
+      <div class="sm-item" onclick="openWindow('mycomputer');closeMenus()"><span class="sm-icon">🖥️</span><span>جهاز الكمبيوتر</span></div>
+      <div class="sm-sep"></div>
+      <div class="sm-item" onclick="openWindow('settings');closeMenus()"><span class="sm-icon">⚙️</span><span>الإعدادات</span></div>
+      <div class="sm-item" onclick="openWindow('about');closeMenus()"><span class="sm-icon">ℹ️</span><span>عن النظام</span></div>
+    </div>
+    <div class="sm-right">
+      <div class="sm-item"><span class="sm-icon">📁</span><span>مستنداتي</span></div>
+      <div class="sm-item"><span class="sm-icon">🖼️</span><span>صوري</span></div>
+      <div class="sm-item"><span class="sm-icon">🎵</span><span>موسيقاي</span></div>
+      <div class="sm-sep"></div>
+      <div class="sm-item"><span class="sm-icon">🖨️</span><span>الطابعات</span></div>
+      <div class="sm-item"><span class="sm-icon">📶</span><span>الشبكة</span></div>
+      <div class="sm-item" onclick="openWindow('settings');closeMenus()"><span class="sm-icon">⚙️</span><span>لوحة التحكم</span></div>
+      <div class="sm-sep"></div>
+      <div class="sm-item"><span class="sm-icon">❓</span><span>المساعدة</span></div>
+    </div>
+  </div>
+  <div class="sm-footer">
+    <div class="sm-footer-btn" onclick="showShutdown()">🔴 إيقاف التشغيل</div>
+    <div class="sm-footer-btn" onclick="location.reload()">🔄 إعادة التشغيل</div>
+  </div>
+</div>
+
+<!-- CONTEXT MENU -->
+<div id="ctx-menu">
+  <div class="ctx-item" onclick="openWindow('settings');closeMenus()">⚙️ خصائص الشاشة</div>
+  <div class="ctx-item" onclick="showWallpaperPicker()">🖼️ تغيير الخلفية</div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" onclick="openWindow('notepad');closeMenus()">📝 مستند جديد</div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" onclick="closeMenus()">🔄 تحديث سطح المكتب</div>
+</div>
+
+<!-- SHUTDOWN OVERLAY -->
+<div id="shutdown-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:99999;display:none;align-items:center;justify-content:center;">
+  <div style="background:#ece9d8;border:2px solid #888;border-radius:8px;padding:24px;width:320px;font-family:'Tajawal',sans-serif;text-align:center;">
+    <div style="font-size:40px;margin-bottom:12px;">⚠️</div>
+    <div style="font-size:16px;font-weight:700;margin-bottom:8px;">إيقاف تشغيل AZ XP</div>
+    <div style="font-size:12px;color:#555;margin-bottom:20px;">ماذا تريد أن يفعل الكمبيوتر؟</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <button onclick="location.reload()" style="padding:8px;background:linear-gradient(180deg,#f5f4ea,#d8d4bc);border:1px solid #888;border-radius:3px;font-family:'Tajawal',sans-serif;font-size:13px;">🔄 إعادة التشغيل</button>
+      <button onclick="document.getElementById('shutdown-overlay').style.display='none'" style="padding:8px;background:linear-gradient(180deg,#f5f4ea,#d8d4bc);border:1px solid #888;border-radius:3px;font-family:'Tajawal',sans-serif;font-size:13px;">❌ إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ========= BOOT SEQUENCE =========
+const setupSteps = [
+  {title:'تجهيز ملفات النظام', desc:'جاري فحص ملفات النظام وتجهيزها...', pct:20},
+  {title:'تثبيت المكونات', desc:'جاري تثبيت المكونات الأساسية لـ AZ XP...', pct:40},
+  {title:'إعداد الواجهة', desc:'جاري إعداد واجهة المستخدم الرسومية...', pct:65},
+  {title:'تهيئة العربية', desc:'جاري تهيئة دعم اللغة العربية الكاملة...', pct:85},
+  {title:'اكتمل الإعداد', desc:'تم إعداد AZ XP بنجاح! جاري الإنهاء...', pct:100},
+];
+
+let stepIdx = 0;
+function runSetup() {
+  if (stepIdx >= setupSteps.length) {
+    setTimeout(goToStartup, 600);
+    return;
+  }
+  const s = setupSteps[stepIdx];
+  document.getElementById('setup-title').textContent = s.title;
+  document.getElementById('setup-desc').textContent = s.desc;
+  document.getElementById('setup-fill').style.width = s.pct + '%';
+  document.getElementById('setup-ptext').textContent = s.pct + '% مكتمل';
+
+  if (stepIdx > 0) {
+    const prev = document.getElementById('step'+(stepIdx-1));
+    prev.classList.remove('active'); prev.classList.add('done');
+    prev.querySelector('span:last-child').textContent = '✓';
+  }
+  const cur = document.getElementById('step'+stepIdx);
+  cur.classList.add('active');
+  cur.querySelector('span:last-child').textContent = 'جاري...';
+
+  stepIdx++;
+  setTimeout(runSetup, 1200);
+}
+setTimeout(runSetup, 500);
+
+function goToStartup() {
+  document.getElementById('setup-screen').style.display = 'none';
+  const ss = document.getElementById('startup-screen');
+  ss.style.display = 'flex';
+  setTimeout(goToLogin, 4000);
+}
+
+function goToLogin() {
+  document.getElementById('startup-screen').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+}
+
+function doLogin() {
+  const pass = document.getElementById('login-pass').value;
+  if (pass !== '' && pass !== '1234' && pass !== 'az') {
+    document.getElementById('login-error').textContent = '❌ كلمة المرور غير صحيحة (اتركها فارغة للدخول)';
+    return;
+  }
+  document.getElementById('login-error').textContent = '';
+  document.getElementById('login-screen').style.opacity = '0';
+  document.getElementById('login-screen').style.transition = 'opacity 0.5s';
+  setTimeout(() => {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('desktop-screen').style.display = 'block';
+    document.getElementById('desktop-screen').style.opacity = '0';
+    document.getElementById('desktop-screen').style.transition = 'opacity 0.6s';
+    setTimeout(() => document.getElementById('desktop-screen').style.opacity = '1', 50);
+    setTimeout(() => openWindow('mycomputer'), 800);
+  }, 500);
+}
+
+function showShutdown() {
+  closeMenus();
+  const o = document.getElementById('shutdown-overlay');
+  o.style.display = 'flex';
+}
+
+// ========= CLOCK =========
+function updateClock() {
+  const now = new Date();
+  const h = now.getHours().toString().padStart(2,'0');
+  const m = now.getMinutes().toString().padStart(2,'0');
+  const d = now.toLocaleDateString('ar-SA', {day:'numeric',month:'numeric'});
+  document.getElementById('clock').innerHTML = h+':'+m+'<br><span style="font-size:10px">'+d+'</span>';
+}
+updateClock(); setInterval(updateClock, 1000);
+
+// ========= WINDOWS =========
+let zCnt = 100, winCnt = 0, wins = {};
+let dragging = null, dOX, dOY;
+
+const winDefs = {
+  mycomputer: { title:'جهاز الكمبيوتر', icon:'🖥️', w:520, h:400, makeContent },
+  notepad:    { title:'المفكرة - بدون عنوان', icon:'📝', w:460, h:360, makeNotepad },
+  calculator: { title:'الآلة الحاسبة', icon:'🧮', w:250, h:350, makeCalc },
+  settings:   { title:'الإعدادات', icon:'⚙️', w:580, h:440, makeSettings },
+  explorer:   { title:'مستنداتي', icon:'📁', w:520, h:400, makeExplorer },
+  about:      { title:'عن AZ XP', icon:'ℹ️', w:380, h:310, makeAbout },
+  recycle:    { title:'سلة المحذوفات', icon:'🗑️', w:400, h:280, makeRecycle },
+};
+
+function makeContent(id) {
+  return `<div style="background:#ece9d8;height:100%">
+    <div style="background:linear-gradient(90deg,#1a4fa0,#3a7ad0);padding:8px 12px;color:white;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:8px;font-family:Tajawal,sans-serif;">🖥️ جهاز الكمبيوتر</div>
+    <div class="file-grid">
+      <div class="file-item"><div class="fi-icon">💿</div><div class="fi-name">القرص المحلي (C:)</div></div>
+      <div class="file-item"><div class="fi-icon">💿</div><div class="fi-name">القرص المحلي (D:)</div></div>
+      <div class="file-item"><div class="fi-icon">📀</div><div class="fi-name">محرك DVD (E:)</div></div>
+      <div class="file-item"><div class="fi-icon">🖨️</div><div class="fi-name">الطابعة المحلية</div></div>
+      <div class="file-item"><div class="fi-icon">📁</div><div class="fi-name">مستنداتي</div></div>
+      <div class="file-item"><div class="fi-icon">🖼️</div><div class="fi-name">صوري</div></div>
+      <div class="file-item"><div class="fi-icon">🎵</div><div class="fi-name">موسيقاي</div></div>
+      <div class="file-item"><div class="fi-icon">🗑️</div><div class="fi-name">سلة المحذوفات</div></div>
+    </div>
+  </div>`;
+}
+
+function makeNotepad(id) {
+  return `<textarea class="notepad-area" placeholder="اكتب هنا..." style="font-family:Tajawal,sans-serif;font-size:14px;direction:rtl;text-align:right;"></textarea>`;
+}
+
+function makeCalc(id) {
+  const btns = [
+    ['MC','MR','MS','M+'],
+    ['C','±','%','÷'],
+    ['7','8','9','×'],
+    ['4','5','6','−'],
+    ['1','2','3','+'],
+    ['0','','.',  '=']
+  ];
+  let html = `<div style="background:#d4d0c8;padding:8px;height:100%;display:flex;flex-direction:column;gap:4px;">
+    <input id="calc-${id}" style="width:100%;text-align:left;font-size:22px;padding:6px 10px;background:white;border:2px inset #999;margin-bottom:6px;font-family:Courier New,monospace;" value="0" readonly>
+    <div class="calc-grid">`;
+  btns.forEach(row => row.forEach((b,i) => {
+    if(b==='') { html += `<div></div>`; return; }
+    const cls = b==='='?'eq':b==='C'?'clr':'÷×−+%±MC MR MS M+'.includes(b)?'op':'';
+    html += `<button class="calc-btn ${cls}" onclick="calcBtn('${b}','${id}')">${b}</button>`;
+  }));
+  html += `</div></div>`;
+  return html;
+}
+
+const calcState = {};
+function calcBtn(b, id) {
+  if(!calcState[id]) calcState[id] = {val:'0',op:'',prev:''};
+  const s = calcState[id];
+  const el = document.getElementById('calc-'+id);
+  if(!el) return;
+  if(b==='C') { s.val='0'; s.op=''; s.prev=''; }
+  else if(b==='=') {
+    try {
+      let expr = (s.prev||'0') + s.op + s.val;
+      expr = expr.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-');
+      s.val = String(parseFloat(eval(expr).toFixed(10)));
+      s.op=''; s.prev='';
+    } catch { s.val='خطأ'; }
+  } else if(['÷','×','−','+'].includes(b)) {
+    s.prev = s.val; s.op = b; s.val = '0';
+  } else if(b==='±') { s.val = String(-parseFloat(s.val)); }
+  else if(b==='%') { s.val = String(parseFloat(s.val)/100); }
+  else {
+    if(s.val==='0' && b!=='.') s.val = b;
+    else s.val += b;
+  }
+  el.value = s.val;
+}
+
+function makeSettings(id) {
+  return `<div class="settings-layout">
+    <div class="settings-nav" id="snav-${id}">
+      <div class="settings-nav-item active" onclick="switchSettings('display','${id}',this)"><span class="sn-icon">🖥️</span>الشاشة والخلفية</div>
+      <div class="settings-nav-item" onclick="switchSettings('sound','${id}',this)"><span class="sn-icon">🔊</span>الصوت</div>
+      <div class="settings-nav-item" onclick="switchSettings('system','${id}',this)"><span class="sn-icon">💻</span>النظام</div>
+      <div class="settings-nav-item" onclick="switchSettings('security','${id}',this)"><span class="sn-icon">🔒</span>الأمان</div>
+      <div class="settings-nav-item" onclick="switchSettings('network','${id}',this)"><span class="sn-icon">📶</span>الشبكة</div>
+      <div class="settings-nav-item" onclick="switchSettings('language','${id}',this)"><span class="sn-icon">🌐</span>اللغة والمنطقة</div>
+      <div class="settings-nav-item" onclick="switchSettings('power','${id}',this)"><span class="sn-icon">🔋</span>الطاقة</div>
+      <div class="settings-nav-item" onclick="switchSettings('updates','${id}',this)"><span class="sn-icon">🔄</span>التحديثات</div>
+    </div>
+    <div class="settings-content" id="scontent-${id}">
+      ${settingsPages.display(id)}
+    </div>
+  </div>`;
+}
+
+const settingsPages = {
+  display: (id) => `
+    <div class="settings-section">
+      <div class="settings-h">🖥️ الشاشة والخلفية</div>
+      <div style="margin-bottom:12px;font-size:12px;color:#333;font-weight:700;">اختر خلفية سطح المكتب:</div>
+      <div class="wallpaper-grid">
+        <div class="wallpaper-option wp-bliss selected" onclick="setWallpaper('bliss',this)"><div class="wp-label">سحب وجبال</div></div>
+        <div class="wallpaper-option wp-night" onclick="setWallpaper('night',this)"><div class="wp-label">الليل</div></div>
+        <div class="wallpaper-option wp-sunset" onclick="setWallpaper('sunset',this)"><div class="wp-label">غروب الشمس</div></div>
+        <div class="wallpaper-option wp-forest" onclick="setWallpaper('forest',this)"><div class="wp-label">الغابة</div></div>
+        <div class="wallpaper-option wp-ocean" onclick="setWallpaper('ocean',this)"><div class="wp-label">المحيط</div></div>
+        <div class="wallpaper-option wp-desert" onclick="setWallpaper('desert',this)"><div class="wp-label">الصحراء</div></div>
+        <div class="wallpaper-option wp-dark" onclick="setWallpaper('dark',this)"><div class="wp-label">أسود</div></div>
+        <div class="wallpaper-option wp-aurora" onclick="setWallpaper('aurora',this)"><div class="wp-label">الشفق القطبي</div></div>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-h">⚡ خيارات العرض</div>
+      <div class="settings-row"><span class="settings-label">تأثيرات الشفافية</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">الرسوم المتحركة</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">حجم الخط</span>
+        <select class="settings-select"><option>صغير</option><option selected>متوسط</option><option>كبير</option></select>
+      </div>
+      <div class="settings-row"><span class="settings-label">دقة الشاشة</span>
+        <select class="settings-select"><option>1280×720</option><option selected>1920×1080</option><option>2560×1440</option></select>
+      </div>
+    </div>`,
+
+  sound: (id) => `
+    <div class="settings-section">
+      <div class="settings-h">🔊 إعدادات الصوت</div>
+      <div class="settings-row"><span class="settings-label">مستوى الصوت الرئيسي</span><input type="range" class="settings-slider" min="0" max="100" value="75"></div>
+      <div class="settings-row"><span class="settings-label">صوت التنبيهات</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">صوت بدء التشغيل</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">تحسين الصوت</span><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">جهاز الإخراج</span>
+        <select class="settings-select"><option>مكبر الصوت الافتراضي</option><option>سماعات رأس</option></select>
+      </div>
+    </div>`,
+
+  system: (id) => `
+    <div class="settings-section">
+      <div class="settings-h">💻 معلومات النظام</div>
+      <div class="settings-row"><span class="settings-label">النظام</span><span style="font-size:12px;color:#555;">AZ XP Professional</span></div>
+      <div class="settings-row"><span class="settings-label">الإصدار</span><span style="font-size:12px;color:#555;">1.0.2024</span></div>
+      <div class="settings-row"><span class="settings-label">المعالج</span><span style="font-size:12px;color:#555;">AZ Core 4 GHz</span></div>
+      <div class="settings-row"><span class="settings-label">الذاكرة (RAM)</span><span style="font-size:12px;color:#555;">8 GB</span></div>
+      <div class="settings-row"><span class="settings-label">التخزين</span><span style="font-size:12px;color:#555;">512 GB SSD</span></div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-h">⚙️ خيارات النظام</div>
+      <div class="settings-row"><span class="settings-label">تشغيل تلقائي عند البدء</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">وضع المطور</span><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">اسم الجهاز</span><input type="text" value="AZ-PC" class="settings-select" style="width:150px;"></div>
+    </div>`,
+
+  security: (id) => `
+    <div class="settings-section">
+      <div class="settings-h">🔒 الأمان والخصوصية</div>
+      <div class="settings-row"><span class="settings-label">جدار الحماية</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">الحماية من الفيروسات</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">تشفير البيانات</span><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">كلمة مرور الشاشة</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">مستوى الأمان</span>
+        <select class="settings-select"><option>منخفض</option><option>متوسط</option><option selected>عالي</option></select>
+      </div>
+    </div>`,
+
+  network: (id) => `
+    <div class="settings-section">
+      <div class="settings-h">📶 إعدادات الشبكة</div>
+      <div class="settings-row"><span class="settings-label">Wi-Fi</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">البلوتوث</span><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+      <div class="settings-row"><span class="settings-label">وضع الطيران</span><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+      <div style="margin-top:12px;padding:10px;background:#f0f8ff;border-radius:4px;font-size:12px;">
+        <div style="font-weight:700;margin-bottom:6px;">📡 الشبكات المتاحة:</div>
+        <div style="padding:4px 0;border-bottom:1px solid #ddd;">📶 AZ-Network (متصل)</div>
+        <div style="padding:4px 0;border-bottom:1px solid #ddd;color:#888;">📶 شبكة منزلية</div>
+        <div style="padding:4px 0;color:#888;">📶 WiFi_Guest</div>
+      </div>
+    </div>`,
+
+  language: (id) => `
+    <div class="settings-section">
+      <div class="settings-h">🌐 اللغة والمنطقة</div>
+      <div class="settings-row"><span class="settings-label">لغة النظام</span>
+        <select class="settings-select"><option selected>العربية</option><option>English</option><option>Français</option></select>
+      </div>
+      <div class="settings-row"><span class="settings-label">المنطقة الزمنية</span>
+        <select class="settings-select"><option selected>توقيت الرياض (GMT+3)</option><option>توقيت القاهرة (GMT+2)</option><option>UTC</option></select>
+      </div>
+      <div class="settings-row"><span class="settings-label">تنسيق التاريخ</span>
+        <select class="settings-select"><option selected>يوم/شهر/سنة</option><option>شهر/يوم/سنة</option></select>
+      </div>
+      <div class="settings-row"><span class="settings-label">اتجاه الكتابة</span>
+        <select class="settings-select"><option selected>من اليمين لليسار</option><option>من اليسار لليمين</option></select>
+      </div>
+    </div>`,
+
+  power: (id) => `
+    <div class="settings-section">
+      <div class="settings-h">🔋 خيارات الطاقة</div>
+      <div class="settings-row"><span class="settings-label">خطة الطاقة</span>
+        <select class="settings-select"><option>موفر الطاقة</option><option selected>متوازن</option><option>أداء عالٍ</option></select>
+      </div>
+      <div class="settings-row"><span class="settings-label">إيقاف الشاشة بعد</span>
+        <select class="settings-select"><option>5 دقائق</option><option selected>15 دقيقة</option><option>لا إيقاف</option></select>
+      </div>
+      <div class="settings-row"><span class="settings-label">وضع السكون بعد</span>
+        <select class="settings-select"><option>10 دقائق</option><option selected>30 دقيقة</option><option>لا</option></select>
+      </div>
+      <div class="settings-row"><span class="settings-label">السطوع التلقائي</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+    </div>`,
+
+  updates: (id) => `
+    <div class="settings-section">
+      <div class="settings-h">🔄 Windows Update</div>
+      <div style="text-align:center;padding:20px;">
+        <div style="font-size:48px;margin-bottom:12px;">✅</div>
+        <div style="font-weight:700;color:#006600;margin-bottom:6px;">النظام محدّث</div>
+        <div style="font-size:12px;color:#555;margin-bottom:16px;">آخر تحديث: اليوم</div>
+        <button style="padding:8px 20px;background:linear-gradient(180deg,#1a80d0,#0d5a9c);color:white;border:none;border-radius:3px;font-family:Tajawal,sans-serif;font-size:13px;">🔍 التحقق من التحديثات</button>
+      </div>
+    </div>`,
+};
+
+function switchSettings(page, winId, el) {
+  document.querySelectorAll(`#snav-${winId} .settings-nav-item`).forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('scontent-'+winId).innerHTML = settingsPages[page] ? settingsPages[page](winId) : '<div style="padding:20px;color:#888">قريباً...</div>';
+}
+
+function setWallpaper(name, el) {
+  const d = document.getElementById('desktop');
+  d.className = 'wallpaper-' + name;
+  document.querySelectorAll('.wallpaper-option').forEach(o => o.classList.remove('selected'));
+  if(el) el.classList.add('selected');
+}
+
+function makeExplorer(id) {
+  return `<div class="explorer-layout">
+    <div class="explorer-sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">📁 مجلداتي</div>
+        <div class="sidebar-item">📄 المستندات</div>
+        <div class="sidebar-item">🖼️ الصور</div>
+        <div class="sidebar-item">🎵 الموسيقى</div>
+        <div class="sidebar-item">🎬 الفيديو</div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">💾 الأجهزة</div>
+        <div class="sidebar-item">💿 القرص C:</div>
+        <div class="sidebar-item">💿 القرص D:</div>
+      </div>
+    </div>
+    <div class="explorer-main">
+      <div class="file-grid">
+        <div class="file-item"><div class="fi-icon">📄</div><div class="fi-name">تقرير العمل.docx</div></div>
+        <div class="file-item"><div class="fi-icon">📊</div><div class="fi-name">البيانات.xlsx</div></div>
+        <div class="file-item"><div class="fi-icon">🖼️</div><div class="fi-name">صورة.jpg</div></div>
+        <div class="file-item"><div class="fi-icon">📝</div><div class="fi-name">ملاحظات.txt</div></div>
+        <div class="file-item"><div class="fi-icon">📁</div><div class="fi-name">مشاريع</div></div>
+        <div class="file-item"><div class="fi-icon">📁</div><div class="fi-name">صور 2024</div></div>
+        <div class="file-item"><div class="fi-icon">🎵</div><div class="fi-name">موسيقى.mp3</div></div>
+        <div class="file-item"><div class="fi-icon">📦</div><div class="fi-name">ملف مضغوط.zip</div></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function makeAbout(id) {
+  return `<div class="about-content">
+    <div class="about-logo-big">AZ</div>
+    <div class="about-name">نظام AZ XP Professional</div>
+    <div style="font-size:13px;color:#666;">الإصدار 1.0.2024</div>
+    <div style="width:80%;height:1px;background:#ddd;margin:8px 0;"></div>
+    <div style="font-size:12px;color:#333;line-height:2;text-align:center;">
+      نظام تشغيل عربي متكامل<br>
+      صُمِّم من الصفر بأحدث التقنيات<br>
+      <b>AZ Systems © 2024</b>
+    </div>
+    <div style="font-size:11px;color:#999;margin-top:4px;">جميع الحقوق محفوظة لـ AZ Systems</div>
+    <button class="about-ok" onclick="closeWinFromBtn(event)">موافق</button>
+  </div>`;
+}
+
+function makeRecycle(id) {
+  return `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:#888;gap:10px;">
+    <div style="font-size:64px;">🗑️</div>
+    <div style="font-size:14px;font-family:Tajawal,sans-serif;">سلة المحذوفات فارغة</div>
+  </div>`;
+}
+
+function openWindow(type) {
+  const def = winDefs[type];
+  if(!def) return;
+  const id = 'win_' + (++winCnt);
+  const el = document.createElement('div');
+  el.className = 'window focused';
+  el.id = id;
+
+  const offset = (winCnt % 8) * 28;
+  el.style.cssText = `left:${50+offset}px;top:${40+offset}px;width:${def.w}px;height:${def.h}px;z-index:${++zCnt}`;
+
+  const hasMenu = ['mycomputer','explorer','notepad'].includes(type);
+  const hasToolbar = ['mycomputer','explorer'].includes(type);
+  const hasStatus = ['mycomputer','explorer'].includes(type);
+
+  el.innerHTML = `
+    <div class="window-titlebar" onmousedown="startDrag(event,'${id}')">
+      <span class="window-icon-title">${def.icon}</span>
+      <span class="window-title">${def.title}</span>
+      <button class="win-btn minimize" onclick="minimizeWin('${id}')">_</button>
+      <button class="win-btn maximize" onclick="maxWin('${id}')">□</button>
+      <button class="win-btn close" onclick="closeWin('${id}')">✕</button>
+    </div>
+    ${hasMenu ? `<div class="window-menubar">
+      <span class="menu-item">ملف</span><span class="menu-item">تحرير</span><span class="menu-item">عرض</span><span class="menu-item">مفضلة</span><span class="menu-item">أدوات</span><span class="menu-item">مساعدة</span>
+    </div>` : ''}
+    ${hasToolbar ? `<div class="window-toolbar">
+      <button class="tb-btn">◀ رجوع</button><button class="tb-btn">▶ أمام</button><button class="tb-btn">⬆ أعلى</button>
+      <div style="flex:1;margin:0 6px;"><input style="width:100%;padding:2px 6px;border:1px solid #aaa;border-radius:2px;font-size:11px;font-family:Tajawal,sans-serif;background:white;" value="C:\المستندات" readonly></div>
+      <button class="tb-btn">🔍 بحث</button>
+    </div>` : ''}
+    <div class="window-content" style="flex:1;">${def.makeContent(id)}</div>
+    ${hasStatus ? `<div class="window-statusbar"><span>جاهز</span><span>0 عنصر محدد</span></div>` : ''}
+  `;
+
+  document.getElementById('desktop').appendChild(el);
+  wins[id] = { type, el, minimized:false, maximized:false };
+  addTaskbarBtn(id, def.icon, def.title);
+  focusWin(id);
+}
+
+function closeWinFromBtn(e) {
+  const w = e.target.closest('.window');
+  if(w) closeWin(w.id);
+}
+
+function closeWin(id) {
+  const w = wins[id]; if(!w) return;
+  w.el.remove(); delete wins[id];
+  document.getElementById('tb_'+id)?.remove();
+}
+
+function minimizeWin(id) {
+  const w = wins[id]; if(!w) return;
+  w.minimized = !w.minimized;
+  w.el.style.display = w.minimized ? 'none' : 'flex';
+  document.getElementById('tb_'+id)?.classList.toggle('active', !w.minimized);
+}
+
+function maxWin(id) {
+  const w = wins[id]; if(!w) return;
+  if(!w.maximized) {
+    w.prev = {left:w.el.style.left,top:w.el.style.top,width:w.el.style.width,height:w.el.style.height};
+    w.el.style.cssText += ';left:0!important;top:0!important;width:100%!important;height:calc(100vh - 40px)!important;border-radius:0!important;';
+    w.maximized = true;
+  } else {
+    Object.assign(w.el.style, w.prev);
+    w.el.style.borderRadius = '8px 8px 2px 2px';
+    w.maximized = false;
+  }
+}
+
+function focusWin(id) {
+  const w = wins[id]; if(!w) return;
+  Object.values(wins).forEach(ww => ww.el.classList.remove('focused'));
+  w.el.classList.add('focused');
+  w.el.style.zIndex = ++zCnt;
+  document.querySelectorAll('.taskbar-app').forEach(a => a.classList.remove('active'));
+  document.getElementById('tb_'+id)?.classList.add('active');
+  if(w.minimized) { w.minimized=false; w.el.style.display='flex'; }
+}
+
+function addTaskbarBtn(id, icon, title) {
+  const btn = document.createElement('div');
+  btn.className = 'taskbar-app active';
+  btn.id = 'tb_'+id;
+  btn.innerHTML = icon + ' ' + title.substring(0,14);
+  btn.onclick = () => { const w=wins[id]; if(w&&!w.minimized&&w.el.classList.contains('focused')){ minimizeWin(id); }else{ focusWin(id); } };
+  document.getElementById('taskbar-apps').appendChild(btn);
+}
+
+// DRAG
+function startDrag(e, id) {
+  if(e.target.classList.contains('win-btn')) return;
+  focusWin(id);
+  const w = wins[id]; if(!w||w.maximized) return;
+  dragging = id;
+  const r = w.el.getBoundingClientRect();
+  dOX = e.clientX - r.left; dOY = e.clientY - r.top;
+  e.preventDefault();
+}
+document.addEventListener('mousemove', e => {
+  if(!dragging) return;
+  const w = wins[dragging]; if(!w||w.maximized) return;
+  w.el.style.left = (e.clientX - dOX) + 'px';
+  w.el.style.top = Math.max(0, e.clientY - dOY) + 'px';
+});
+document.addEventListener('mouseup', () => dragging = null);
+document.addEventListener('mousedown', e => {
+  const win = e.target.closest('.window');
+  if(win && wins[win.id]) focusWin(win.id);
+});
+
+// MENUS
+function toggleStartMenu(e) {
+  e.stopPropagation();
+  const m = document.getElementById('start-menu');
+  m.style.display = m.style.display==='block' ? 'none' : 'block';
+  document.getElementById('ctx-menu').style.display = 'none';
+}
+
+function showCtxMenu(e) {
+  e.preventDefault();
+  const m = document.getElementById('ctx-menu');
+  m.style.display = 'block';
+  const x = e.clientX, y = e.clientY;
+  m.style.left = Math.min(x, window.innerWidth-180) + 'px';
+  m.style.top = Math.max(0, y - m.offsetHeight - 4) + 'px';
+  document.getElementById('start-menu').style.display = 'none';
+}
+
+function closeMenus() {
+  document.getElementById('start-menu').style.display = 'none';
+  document.getElementById('ctx-menu').style.display = 'none';
+}
+
+function deselectIcons() {
+  document.querySelectorAll('.icon').forEach(i => i.classList.remove('selected'));
+}
+
+function selectIcon(el, e) {
+  e.stopPropagation();
+  deselectIcons();
+  el.classList.add('selected');
+}
+
+function showWallpaperPicker() {
+  closeMenus();
+  openWindow('settings');
+}
+
+function showShutdown() {
+  closeMenus();
+  document.getElementById('shutdown-overlay').style.display = 'flex';
+}
+</script>
+</body>
+</html>
